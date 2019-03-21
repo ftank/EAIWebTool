@@ -14,6 +14,38 @@ app.use(function (req, res, next) {
 app.use(express.static(__dirname));
 app.listen(port);
 
+app.get('/index/*', function (req, res){
+  
+    rackname = req.params[0].split(" ")
+    STB = req.params[0].split(" ")
+    child = shell.exec('/home/fscaranellotank/Desktop/test.sh ' + rackname[0] + ' ' + STB[1], { async: true });
+    child.stdout.on('data', function (data) {
+      res.send(data);
+    });
+
+});
+
+app.get('/getter/*', function (req, res) {
+
+  rackname = req.params[0].split(" ")
+  STB = req.params[0].split(" ")
+  child = shell.exec('/home/fscaranellotank/Desktop/getter.sh ' + rackname[0] + ' ' + STB[1], { async: true });
+  child.stdout.on('data', function (data) {
+    res.send(data);
+  });
+});
+
+app.get('/downloadbuild/eq0210*', function (req, res) {
+
+  console.log(req.params[0])
+  //child = shell.exec('/home/fscaranellotank/Desktop/downloadbuild.sh ' + rackname + req.params[0], { async: true });
+  //child.stdout.on('data', function (data) {
+  //  res.send(data);
+ // });
+});
+
+
+/*
 app.get('/index/eq0210*', function (req, res) {
 
   var rackname = "eq0210"
@@ -22,6 +54,29 @@ app.get('/index/eq0210*', function (req, res) {
     res.send(data);
   });
 });
+
+app.get('/index/getter/eq0210*', function (req, res) {
+
+  var rackname = "eq0210"
+  child = shell.exec('/home/fscaranellotank/Desktop/getter.sh ' + rackname + req.params[0], { async: true });
+  child.stdout.on('data', function (data) {
+    res.send(data);
+  });
+});
+
+app.get('/index/downloadbuild/eq0210*', function (req, res) {
+
+  var rackname = "eq0210"
+  child = shell.exec('/home/fscaranellotank/Desktop/downloadbuild.sh ' + rackname + req.params[0], { async: true });
+  child.stdout.on('data', function (data) {
+    res.send(data);
+  });
+});
+
+
+
+
+
 
 app.get('/index/eq0211*', function (req, res) {
 
@@ -32,6 +87,29 @@ app.get('/index/eq0211*', function (req, res) {
   });
 });
 
+app.get('/index/getter/eq0211*', function (req, res) {
+
+  var rackname = "eq0211"
+  child = shell.exec('/home/fscaranellotank/Desktop/getter.sh ' + rackname + req.params[0], { async: true });
+  child.stdout.on('data', function (data) {
+    res.send(data);
+  });
+});
+
+app.get('/index/downloadbuild/eq0211*', function (req, res) {
+
+  var rackname = "eq0211"
+  child = shell.exec('/home/fscaranellotank/Desktop/downloadbuild.sh ' + rackname + req.params[0], { async: true });
+  child.stdout.on('data', function (data) {
+    res.send(data);
+  });
+});
+
+
+
+
+
+
 app.get('/index/eq0212*', function (req, res) {
 
   var rackname = "eq0212"
@@ -40,6 +118,17 @@ app.get('/index/eq0212*', function (req, res) {
     res.send(data);
   });
 });
+
+
+app.get('/index/getter/eq0212*', function (req, res) {
+
+  var rackname = "eq0212"
+  child = shell.exec('/home/fscaranellotank/Desktop/getter.sh ' + rackname + req.params[0], { async: true });
+  child.stdout.on('data', function (data) {
+    res.send(data);
+  });
+});
+
 
 app.get('/index/downloadbuild/eq0212*', function (req, res) {
 
@@ -50,6 +139,11 @@ app.get('/index/downloadbuild/eq0212*', function (req, res) {
   });
 });
 
+
+
+
+
+
 app.get('/index/eq0214*', function (req, res) {
 
   var rackname = "eq0214"
@@ -59,6 +153,30 @@ app.get('/index/eq0214*', function (req, res) {
   });
 });
 
+app.get('/index/getter/eq0214*', function (req, res) {
+
+  var rackname = "eq0214"
+  child = shell.exec('/home/fscaranellotank/Desktop/getter.sh ' + rackname + req.params[0], { async: true });
+  child.stdout.on('data', function (data) {
+    res.send(data);
+  });
+});
+
+
+app.get('/index/downloadbuild/eq0214*', function (req, res) {
+
+  var rackname = "eq0214"
+  child = shell.exec('/home/fscaranellotank/Desktop/downloadbuild.sh ' + rackname + req.params[0], { async: true });
+  child.stdout.on('data', function (data) {
+    res.send(data);
+  });
+});
+
+
+
+
+
+
 app.get('/index/eq0215*', function (req, res) {
 
   var rackname = "eq0215"
@@ -67,6 +185,31 @@ app.get('/index/eq0215*', function (req, res) {
     res.send(data);
   });
 });
+
+app.get('/index/getter/eq0215*', function (req, res) {
+
+  var rackname = "eq0215"
+  child = shell.exec('/home/fscaranellotank/Desktop/getter.sh ' + rackname + req.params[0], { async: true });
+  child.stdout.on('data', function (data) {
+    res.send(data);
+  });
+});
+
+
+app.get('/index/downloadbuild/eq0215*', function (req, res) {
+
+  var rackname = "eq0215"
+  child = shell.exec('/home/fscaranellotank/Desktop/downloadbuild.sh ' + rackname + req.params[0], { async: true });
+  child.stdout.on('data', function (data) {
+    res.send(data);
+  });
+});
+
+
+
+
+
+
 
 app.get('/index/eq0216*', function (req, res) {
 
@@ -240,5 +383,6 @@ app.get('/index/f08*', function (req, res) {
   });
 });
 
+*/
 
 console.log("Server Started!!");

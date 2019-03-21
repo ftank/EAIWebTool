@@ -54,7 +54,7 @@ function downloadbuild(rackname, path, release) {
     $.ajax({
         type: "GET",
         dataType: 'text',
-        url: "http://172.25.11.43:3000/index/downloadbuild/" + command,
+        url: "http://172.25.11.43:3000/downloadbuild/" + command,
         success: function (data) {
             if (release == true) {
                 $("#releaseout").append("<b> Downloading the build to rack " + rackname + "<br></b>")

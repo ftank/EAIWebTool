@@ -17,24 +17,19 @@ function createandcall(rackname, stb) {
 }
 
 function getter(rackname, i) {
-  alert(rackname + ' ' + i);
   response = '\#stb' + i;
-  $(response).append("<br><b>Error to stop the tests</b></br>")
-  $(response).append("<br><b>Error to run Getter</b></br>")
- 
+
   $.ajax({
     type: "GET",
     dataType: 'text',
-    url: "http://172.25.11.43:3000/index/getter/" + rackname + ' ' + i,
+    url: "http://172.25.11.43:3000/getter/" + rackname + ' ' + i,
     success: function (data) {
       response = '\#stb' + i;
       $(response).append(data);
     },
     error: function (error) {
 
-      $(response).append('Error to run Getter');
-
-      $("#error").show();
+      $(response).append('Error to stop the Tests');
     }
   });
 }
@@ -96,7 +91,7 @@ function callstb(rackname, i) {
       }
       else if (pre.indexOf('Fail') != -1 || pre.indexOf('ERROR') != -1) {
         $(idtd).attr('class', 'danger');
-        $(idtd).append(`<button type="button" id="rungetter" value=` + i + ` onClick="getter(rackname=\'` + rackname + `\',` + i + `)">Stop Tests and Run Getter</button>`)
+        $(idtd).append(`<button type="button" id="rungetter" value=` + i + ` onClick="getter(rackname=\'` + rackname + `\',` + i + `)">Stop Tests</button>`)
       }
     },
     error: function (error) {
