@@ -1,0 +1,75 @@
+<html>
+<header>
+    <meta charset="utf-8">
+    <title>RackChecker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</header>
+
+<body>
+    <h4 style="text-align: center">Select your Rack:</h4>
+    <select id="multiple" size="5" multiple="multiple" style="display:block;margin-left:auto;margin-right:auto">
+        <option nb="4">eq0210</option>
+        <option nb="4">eq0211</option>
+        <option nb="4">eq0212</option>
+        <option nb="4">eq0214</option>
+        <option nb="16">eq0215</option>
+        <option nb="8">eq0216</option>
+        <option nb="4">eq0217</option>
+        <option nb="8">eq0307</option>
+        <option nb="4">eq0308</option>
+        <option nb="4">eq0309</option>
+        <option nb="10">eq0317</option>
+        <option nb="4">eq0318</option>
+        <option nb="10">eq0319</option>
+        <option nb="4">eq0320</option>
+        <option nb="8">e05</option>
+        <option nb="8">e06</option>
+        <option nb="8">e07</option>
+        <option nb="8">f02</option>
+        <option nb="8">f03</option>
+        <option nb="8">f04</option>
+        <option nb="8">f05</option>
+        <option nb="16">f07</option>
+        <option nb="16">f08</option>
+    </select>
+    <div id="container"></div>
+    <table>
+        <tbody>
+            <tr>
+                <td id="release">
+                    Copy & Paste the path of release build into the text area:<br>
+                    <input type="text" id="releasein" style="height:40;width:800">
+                    <input type="submit" value="Submit" id="submitrelease">
+                    <pre id="releaseout" height="10" width="900"></pre>
+                    <br><input type="submit" value="Upgrade" id="upgraderelease">
+                </td>
+                <td id="nightly">
+                    Copy & Paste the path of nightly build into the text area:<br>
+                    <input type="text" id="nightlyin" style="height:40;width:800">
+                    <input type="submit" value="Submit" id="submitnightly">
+                    <pre id="nightlyout" height="10" width="900"></pre>
+                    <br><input type="submit" value="Upgrade" id="upgradenightly">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <iframe src="http://135.110.220.19:8081/nexus/service/rest/repository/browse/release/"
+                        scrolling="yes" height="400" width="900"></iframe>
+                </td>
+                <td>
+                    <iframe src="http://135.110.220.19:8081/nexus/service/rest/repository/browse/engbuilds/nightly/"
+                        scrolling="yes" height="400" width="900"></iframe>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+    </div>
+
+    <script src="js/upgrader.js"></script>
+</body>
+
+</html>
