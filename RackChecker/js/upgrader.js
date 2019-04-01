@@ -49,8 +49,11 @@ function downloadbuild(rackname, path, release) {
         command = rackname + ' -r ' + path;
     }
     else {
-        command = rackname + path;
+        command = rackname + " " + path;
     }
+
+    console.log(command)
+    
     $.ajax({
         type: "GET",
         dataType: 'text',
@@ -80,7 +83,7 @@ function downloadbuild(rackname, path, release) {
 function checkbox(stb, release) {
 
     if (release == true) {
-        $("#release").append("Select the STBs to be upgrade:<br>")
+        $("#release").append("<br>Select the STBs to be upgrade:<br>")
         for (i = 1; i < stb + 1; i++) {
             $("#release").append('<input type="checkbox" id=' + i + '>' + i)
 
@@ -89,12 +92,12 @@ function checkbox(stb, release) {
 
     }
     else {
-        $("#nightly").append("Select the STBs to be upgrade:<br>")
+        $("#nightly").append("<br>Select the STBs to be upgrade:<br>")
         for (i = 1; i < stb + 1; i++) {
             $("#nightly").append('<input type="checkbox" id=' + i + '>' + i)
 
         }
-        $("#nightly").show()
+        $("#upgradenightly").show()
     }
 
 }
