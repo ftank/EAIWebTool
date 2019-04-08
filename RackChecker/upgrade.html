@@ -9,6 +9,29 @@
 </header>
 
 <body>
+        <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="#">RackChecker</a>
+                  </div>
+                  <ul class="nav navbar-nav">
+                    <li><a href="/index.html">Get Status</a></li>
+            <!--        <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+                        <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Page 1-1</a></li>
+                        <li><a href="#">Page 1-2</a></li>
+                        <li><a href="#">Page 1-3</a></li>
+                      </ul>
+                    </li>-->
+                    <li class="active"><a href="/upgrade.html">Install new Build</a></li>
+                    <li><a href="/redrat.html">RedRat Commands</a></li>
+                  </ul>
+                </div>
+              </nav>
+              
+
     <h4 style="text-align: center">Select your Rack:</h4>
     <select id="multiple" size="5" multiple="multiple" style="display:block;margin-left:auto;margin-right:auto">
         <option nb="4">eq0210</option>
@@ -42,14 +65,14 @@
                 <td id="release">
                     Copy & Paste the path of release build into the text area:<br>
                     <input type="text" id="releasein" style="height:40;width:800">
-                    <input type="submit" value="Submit" id="submitrelease">
+                    <input type="submit" value="Download" id="submitrelease">
                     <pre id="releaseout" height="10" width="900"></pre>
                     <br><input type="submit" value="Upgrade" id="upgraderelease"><br>
                 </td>
                 <td id="nightly">
                     Copy & Paste the path of nightly build into the text area:<br>
                     <input type="text" id="nightlyin" style="height:40;width:800">
-                    <input type="submit" value="Submit" id="submitnightly">
+                    <input type="submit" value="Download" id="submitnightly">
                     <pre id="nightlyout" height="10" width="900"></pre>
                     <br><input type="submit" value="Upgrade" id="upgradenightly"><br>
                 </td>

@@ -1,0 +1,133 @@
+<html>
+<header>
+    <meta charset="utf-8">
+    <title>RackChecker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</header>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">RackChecker</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/index.html">Get Status</a></li>
+                <!--        <li class="dropdown">
+                              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+                                <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Page 1-1</a></li>
+                                <li><a href="#">Page 1-2</a></li>
+                                <li><a href="#">Page 1-3</a></li>
+                              </ul>
+                            </li>-->
+                <li><a href="/upgrade.html">Install new Build</a></li>
+                <li class="active"><a href="/redrat.html">RedRat Commands</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="menu" style="text-align: center">
+        <h4>Select your Rack:</h4>
+        <select id="multiple" size="5" multiple="multiple" style="display:block;margin-left:auto;margin-right:auto">
+            <option nb="4" clients="3">eq0210</option>
+            <option nb="4" clients="3">eq0211</option>
+            <option nb="4" clients="3">eq0212</option>
+            <option nb="4" clients="3">eq0214</option>
+            <option nb="16" clients="3">eq0215</option>
+            <option nb="8" clients="7">eq0216</option>
+            <option nb="4" clients="3">eq0217</option>
+            <option nb="8" clients="7">eq0307</option>
+            <option nb="4" clients="3">eq0308</option>
+            <option nb="4" clients="3">eq0309</option>
+            <option nb="10" clients="3">eq0317</option>
+            <option nb="4" clients="3">eq0318</option>
+            <option nb="10" clients="3">eq0319</option>
+            <option nb="4" clients="3">eq0320</option>
+            <option nb="8" clients="7">e05</option>
+            <option nb="8" clients="7">e06</option>
+            <option nb="8" clients="7">e07</option>
+            <option nb="8" clients="7">f02</option>
+            <option nb="8" clients="7">f03</option>
+            <option nb="8" clients="7">f04</option>
+            <option nb="8" clients="7">f05</option>
+            <option nb="16" clients="3">f07</option>
+            <option nb="16" clients="3">f08</option>
+        </select>
+        <h4>Servers:</h4>
+        <div id="servers"></div>
+        <h4>Clients:</h4>
+        <div id="clients"></div>
+    </div>
+    <div id="controller" style="text-align: center">
+        <table style="text-align: center; vertical-align: center; width: 100%">
+            <tbody>
+                <tr>
+                    <td style="text-align: center">
+                        <button type="button" class="btn btn-danger" id="power">Power</button><br>
+                        <button type="button" class="btn">Guide</button>
+                        <button type="button" class="btn">Menu</button>
+                        <button type="button" class="btn">List</button><br>
+                        <button type="button" class="btn">Record</button>
+                        <button type="button" class="btn">Up</button>
+                        <button type="button" class="btn">Exit</button><br>
+                        <button type="button" class="btn">Left</button>
+                        <button type="button" class="btn">Select</button>
+                        <button type="button" class="btn">Right</button><br>
+                        <button type="button" class="btn">Record</button>
+                        <button type="button" class="btn">Down</button>
+                        <button type="button" class="btn">Info</button><br>
+                        <button type="button" class="btn">Mute</button>
+                        <button type="button" class="btn">Menu</button>
+                        <button type="button" class="btn">List</button>
+                        <button type="button" class="btn">Guide</button><br>
+                        <button type="button" class="btn">1</button>
+                        <button type="button" class="btn">2</button>
+                        <button type="button" class="btn">3</button><br>
+                        <button type="button" class="btn">4</button>
+                        <button type="button" class="btn">5</button>
+                        <button type="button" class="btn">6</button><br>
+                        <button type="button" class="btn">7</button>
+                        <button type="button" class="btn">8</button>
+                        <button type="button" class="btn">9</button><br>
+                        <button type="button" class="btn">-</button>
+                        <button type="button" class="btn">0</button>
+                        <button type="button" class="btn">Enter</button><br>
+                        <!--<button type="button" class="btn btn-default">Default</button>
+                    <button type="button" class="btn btn-primary">Primary</button>
+                    <button type="button" class="btn btn-success">Success</button>
+                    <button type="button" class="btn btn-info">Info</button>
+                    <button type="button" class="btn btn-warning">Warning</button>
+                    <button type="button" class="btn btn-danger">Danger</button>
+                    -->
+                    </td>
+                    <td>
+                        <table class="table table-responsive">
+                            <tbody id="screens">
+                            </tbody>
+                        </table>
+                    </td>
+                    <td>
+                        RedRat Commands sent to STBs:
+                        <pre id="logs" style="text-align: left">
+                        Remote Controller Connect to Rack eq0308 on STBs: 
+                        STB_1, STB_2
+                        Please look at the STB SCREEN to see if it's responding to the commands:
+                        Command "Menu" sent to STB_1 and STB_2.
+                        Command "Menu" sent to STB_1 and STB_2.
+                        Command "Menu" sent to STB_1 and STB_2.
+                        Command "Menu" sent to STB_1 and STB_2.
+                    </pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="js/redrat.js"></script>
+</body>
+
+</html>

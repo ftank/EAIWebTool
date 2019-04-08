@@ -39,22 +39,22 @@ function createtable(i) {
   if (i < 5) {
     idpre = 'stb' + i;
     idtd = 'tdstb' + i;
-    $('#STBL').append('<td class="" id=' + idtd + '><h4>' + 'STB' + i + '</h4><pre id=' + idpre + '></pre></td>');
+    $('#STBL').append('<td class="" id=' + idtd + '><h4>' + 'STB' + i + '</h4><pre id=' + idpre + '><img src="images/loading.gif" style="width:50px;height:50px"></pre></td>');
   }
   if (i > 4 && i < 9) {
     idpre = 'stb' + i;
     idtd = 'tdstb' + i;
-    $('#STBL1').append('<td class="" id=' + idtd + '><h4>' + 'STB' + i + '</h4><pre id=' + idpre + '></pre></td>');
+    $('#STBL1').append('<td class="" id=' + idtd + '><h4>' + 'STB' + i + '</h4><pre id=' + idpre + '><img src="images/loading.gif" style="width:50px;height:50px"></pre></td>');
   }
   if (i > 8 && i < 13) {
     idpre = 'stb' + i;
     idtd = 'tdstb' + i;
-    $('#STBL2').append('<td class="" id=' + idtd + '><h4>' + 'STB' + i + '</h4><pre id=' + idpre + '></pre></td>');
+    $('#STBL2').append('<td class="" id=' + idtd + '><h4>' + 'STB' + i + '</h4><pre id=' + idpre + '><img src="images/loading.gif" style="width:50px;height:50px"></pre></td>');
   }
   if (i > 12 && i < 17) {
     idpre = 'stb' + i;
     idtd = 'tdstb' + i;
-    $('#STBL3').append('<td class="" id=' + idtd + '><h4>' + 'STB' + i + '</h4><pre id=' + idpre + '></pre></td>');
+    $('#STBL3').append('<td class="" id=' + idtd + '><h4>' + 'STB' + i + '</h4><pre id=' + idpre + '><img src="images/loading.gif" style="width:50px;height:50px"></pre></td>');
   }
 }
 

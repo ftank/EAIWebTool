@@ -43,14 +43,18 @@ app.get('/downloadbuild/*', function (req, res) {
   if (build[1] == "-r") { 
     command = rackname[0] + " -r " + build[2];
     console.log(command)
+    child = shell.exec('/home/fscaranellotank/Desktop/downloadbuild.sh ' + command, { async: true });
+    child.stdout.on('data', function (data) {
+    res.send(data);
+    });
   }
   else {
     console.log(command)
+    child = shell.exec('/home/fscaranellotank/Desktop/downloadbuild.sh ' + command, { async: true });
+    child.stdout.on('data', function (data) {
+    res.send(data);
+    });
   }
-  //child = shell.exec('/home/fscaranellotank/Desktop/downloadbuild.sh ' + rackname[0] + STB[1], { async: true });
-  //child.stdout.on('data', function (data) {
-  //  res.send(data);
- // });
 });
 
 

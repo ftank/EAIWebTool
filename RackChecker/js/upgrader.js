@@ -23,7 +23,7 @@ $("#upgraderelease").hide();
 $("#upgradenightly").hide();
 $("#upgraderelease").click(function () {
     rackname = $("#multiple option:selected").val();
-    version = ($("#releasein").val().split( "/" )[ 1 ]);
+    version = ($("#releasein").val().split("/")[1]);
     var checkboxValues = [];
     $('input:checked').map(function () {
         checkboxValues.push($(this).attr('id'));
@@ -34,7 +34,7 @@ $("#upgraderelease").click(function () {
 
 $("#upgradenightly").click(function () {
     rackname = $("#multiple option:selected").val();
-    version = ($("#nightlyin").val().split( "/" )[ 1 ]);
+    version = ($("#nightlyin").val().split("/")[1]);
     var checkboxValues = [];
     $('input:checked').map(function () {
         checkboxValues.push($(this).attr('id'));
@@ -53,29 +53,32 @@ function downloadbuild(rackname, path, release) {
     }
 
     console.log(command)
-    
+    $("#releaseout").append('<img src="images/loading.gif" style="width:50px;height:50px" id="loading">')
     $.ajax({
         type: "GET",
         dataType: 'text',
         url: "http://172.25.11.43:3000/downloadbuild/" + command,
         success: function (data) {
             if (release == true) {
-                $("#releaseout").append("<b> Downloading the build to rack " + rackname + "<br></b>")
+                $("#releaseout").append("<b> Build downloaded to rack " + rackname + "<br></b>")
                 $("#releaseout").append(data);
+                $("#loading").hide()
             }
             else {
-                $("#nightlyout").append("<b> Downloading the build to rack" + rackname + "<br></b>")
+                $("#nightlyout").append("<b> Build downloaded to rack" + rackname + "<br></b>")
                 $("#nightlyout").append(data);
+                $("#loading").hide()
+
             }
 
         },
         error: function (error) {
 
             if (release == true) {
-                $("#releaseout").append("<b>Error to download the build on Rack " + rackname + "<br></b>");
+                $("#releaseout").append("<b>Error to download build to rack " + rackname + "<br></b>");
             }
             else
-                $("#nightlyout").append("<b> Error to download the build on Rack " + rackname + "<br></b>")
+                $("#nightlyout").append("<b> Error to download build to rack " + rackname + "<br></b>")
         }
     });
 }
