@@ -14,48 +14,38 @@ app.use(function (req, res, next) {
 app.use(express.static(__dirname));
 app.listen(port);
 
-app.get('/index/*', function (req, res){
-  
-    rackname = req.params[0].split(" ")
-    STB = req.params[0].split(" ")
-    child = shell.exec('/home/fscaranellotank/Desktop/test.sh ' + rackname[0] + ' ' + STB[1], { async: true });
-    child.stdout.on('data', function (data) {
-      res.send(data);
-    });
+app.get('/index/*', function (req, res) {
+  child = shell.exec('/home/fscaranellotank/Desktop/test.sh ' + req.params[0], { async: true });
+  child.stdout.on('data', function (data) {
+    res.send(data);
+  });
 
 });
 
-app.get('/getter/*', function (req, res) {
-
-  rackname = req.params[0].split(" ")
-  STB = req.params[0].split(" ")
-  child = shell.exec('/home/fscaranellotank/Desktop/getter.sh ' + rackname[0] + ' ' + STB[1], { async: true });
+app.get('/stoptests/*', function (req, res) {
+  child = shell.exec('/home/fscaranellotank/Desktop/stoptests.sh ' + req.params[0], { async: true });
   child.stdout.on('data', function (data) {
     res.send(data);
   });
 });
 
 app.get('/downloadbuild/*', function (req, res) {
-  
-  rackname = req.params[0].split(" ")
-  build = req.params[0].split(" ")
-  command = rackname[0] + " " + build[1]
-  if (build[1] == "-r") { 
-    command = rackname[0] + " -r " + build[2];
-    console.log(command)
-    child = shell.exec('/home/fscaranellotank/Desktop/downloadbuild.sh ' + command, { async: true });
-    child.stdout.on('data', function (data) {
+  console.log(req.params[0])
+  child = shell.exec('/home/fscaranellotank/Desktop/downloadbuild.sh ' + req.params[0], { async: true });
+  child.stdout.on('data', function (data) {
     res.send(data);
-    });
-  }
-  else {
-    console.log(command)
-    child = shell.exec('/home/fscaranellotank/Desktop/downloadbuild.sh ' + command, { async: true });
-    child.stdout.on('data', function (data) {
-    res.send(data);
-    });
-  }
+  });
 });
 
+app.get('/upgradestb/*', function (req, res) {
+
+  console.log(req.params[0])
+  child = shell.exec('/home/fscaranellotank/Desktop/upgradestb.sh ' + req.params[0], { async: true });
+  child.stdout.on('data', function (data) {
+    res.send(data);
+  });
+
+
+});
 
 console.log("Server Started!!");

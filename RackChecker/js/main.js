@@ -15,14 +15,14 @@ function createandcall(rackname, stb) {
   }
   return;
 }
-
-function getter(rackname, i) {
+// function to stop the tests on failed STBs
+function stoptests(rackname, i) {
   response = '\#stb' + i;
 
   $.ajax({
     type: "GET",
     dataType: 'text',
-    url: "http://172.25.11.43:3000/getter/" + rackname + ' ' + i,
+    url: "http://172.25.11.43:3000/stoptests/" + rackname + ' ' + i,
     success: function (data) {
       response = '\#stb' + i;
       $(response).append(data);
@@ -70,7 +70,7 @@ function changeids() {
     $('#' + idtd).attr('id', idtd + '_modified');
   }
 }
-
+// function to get the status for each STB
 function callstb(rackname, i) {
   $.ajax({
     type: "GET",
@@ -91,7 +91,7 @@ function callstb(rackname, i) {
       }
       else if (pre.indexOf('Fail') != -1 || pre.indexOf('ERROR') != -1) {
         $(idtd).attr('class', 'danger');
-        $(idtd).append(`<button type="button" id="rungetter" value=` + i + ` onClick="getter(rackname=\'` + rackname + `\',` + i + `)">Stop Tests</button>`)
+        $(idtd).append(`<button type="button" id="stoptest" value=` + i + ` onClick="stoptests(rackname=\'` + rackname + `\',` + i + `)">Stop Tests</button>`)
       }
     },
     error: function (error) {
